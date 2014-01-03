@@ -5,18 +5,17 @@ Optionally collects data of these events along the way.
 
 ```coffeescript
 # Define an asynchronizer.
-asynchronizer = new Asynchronizer ['one', 'two'], (data) ->
+asynchronizer = new Asynchronizer ['event one', 'event two'], (data) ->
   alert "All events have been registered. The collected data is: #{data}"
 
 # Register event "one".
 # There are still unchecked conditions in this Asynchronizer,
 # so this does not trigger the callback.
-asynchronizer.check 'one', 'data for one'
-
+asynchronizer.check 'event one', 'data for event one'
 
 # Registers the next event.
 # This is the final missing condition,
 # so this calls the callback with
-# ['data for one', 'data for two'].
-asynchronizer.check 'two', 'data for two'
+# ['data for event one', 'data for event two'].
+asynchronizer.check 'event two', 'data for event two'
 ```
