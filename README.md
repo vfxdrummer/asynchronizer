@@ -1,4 +1,4 @@
-# Asynchronizer
+# Asynchronizer [![Build Status](https://travis-ci.org/kevgo/asynchronizer.png?branch=master)](https://travis-ci.org/kevgo/asynchronizer)
 
 Provides a mechanism to wait for a defined set of events.
 Optionally collects data of these events along the way.
