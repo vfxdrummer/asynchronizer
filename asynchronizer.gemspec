@@ -5,7 +5,7 @@ require "asynchronizer/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "Asynchronizer"
+  s.name        = "asynchronizer"
   s.version     = Asynchronizer::VERSION
   s.authors     = ["Kevin Goslar"]
   s.email       = ["kevin.Goslar@gmail.com"]

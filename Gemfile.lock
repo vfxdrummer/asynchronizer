@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    Asynchronizer (0.0.1)
+    asynchronizer (0.0.2)
       coffee-rails
       rails (> 3.2.0)
 
@@ -175,7 +175,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  Asynchronizer!
+  asynchronizer!
   guard-livereload
   konacha
   poltergeist
