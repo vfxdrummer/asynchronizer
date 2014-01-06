@@ -32,4 +32,4 @@ asynchronizer.check('event two', 'data for event two');
 ## Development
 
 * set up development environment: `npm install`
-* run tests: `npm test`
+* run tests: `npm test` or `script/watch_tests` for continuous testing
