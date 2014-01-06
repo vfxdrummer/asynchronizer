@@ -1,5 +1,6 @@
 # Collects data from asynchronous events.
-class window.Asynchronizer
+
+class Asynchronizer
 
   # conditions: array of simple conditions to wait for.
   # callback: method that is called when all required conditions are met.
@@ -23,3 +24,8 @@ class window.Asynchronizer
     @remaining_conditions = _.without @remaining_conditions, condition
     if @remaining_conditions.length is 0
       @callback @values
+
+
+
+module.exports = Asynchronizer if module
+window.Asynchronizer = Asynchronizer if window?

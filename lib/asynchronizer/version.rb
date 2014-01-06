@@ -1,3 +1,0 @@
-module Asynchronizer
-  VERSION = "0.0.2"
-end

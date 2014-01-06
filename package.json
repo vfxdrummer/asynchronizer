@@ -1,0 +1,29 @@
+{
+  "name": "asynchronizer.js",
+  "version": "0.0.1",
+  "description": "Tools for collecting data through multiple asynchronous events in JavaScript.",
+  "main": "asynchronizer.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "coffee-script": "latest",
+    "mocha": "latest",
+    "sinon": "latest",
+    "sinon-chai": "latest",
+    "underscore": "latest"
+  },
+  "scripts": {
+    "test": "mocha --compilers coffee:coffee-script --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kevgo/asynchronizer.js.git"
+  },
+  "author": "Kevin Goslar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevgo/asynchronizer.js/issues"
+  },
+  "homepage": "https://github.com/kevgo/asynchronizer.js"
+}

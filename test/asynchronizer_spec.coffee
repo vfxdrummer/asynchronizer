@@ -1,4 +1,10 @@
-#= require spec_helper
+chai = require 'chai'
+sinon = require 'sinon'
+chai.use require 'sinon-chai'
+expect = chai.expect
+global._ = require 'underscore'
+Asynchronizer = require '../src/asynchronizer'
+
 
 describe 'Asynchronizer', ->
   
