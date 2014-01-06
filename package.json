@@ -1,16 +1,20 @@
 {
-  "name": "asynchronizer.js",
+  "name": "asynchronizer",
   "version": "0.0.1",
   "description": "Tools for collecting data through multiple asynchronous events in JavaScript.",
-  "main": "asynchronizer.js",
   "directories": {
     "test": "test"
   },
   "devDependencies": {
     "coffee-script": "latest",
+    "grunt": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-coffee": "latest",
+    "grunt-contrib-uglify": "latest",
     "mocha": "latest",
     "sinon": "latest",
     "sinon-chai": "latest",
+    "uglifyjs": "latest",
     "underscore": "latest"
   },
   "scripts": {
