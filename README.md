@@ -1,7 +1,11 @@
 # Asynchronizer [![Build Status](https://travis-ci.org/kevgo/asynchronizer.png?branch=master)](https://travis-ci.org/kevgo/asynchronizer)
 
-Provides a mechanism to wait for a defined set of events.
-Optionally collects data of these events along the way.
+A promise that waits for a list of given of conditions to occur.
+Optionally collects data from the conditions.
+
+This can be used to collect data from a variety of asynchronous data sources,
+and process them all at once when done.
+
 
 ```javascript
 // Define an asynchronizer.

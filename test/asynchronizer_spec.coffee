@@ -10,31 +10,67 @@ describe 'Asynchronizer', ->
   
   beforeEach ->
     @callback = sinon.stub()
-    @asynchronizer = new Asynchronizer ['one', 'two', 'three'], @callback
+    @asynchronizer = new Asynchronizer ['one', 'two', 'three']
 
 
-  describe 'check', ->
+  context 'callback defined before the conditions are fulfilled', ->
 
-    context 'not all condidions fulfilled', ->
+    beforeEach ->
+      @asynchronizer.then @callback
 
-      beforeEach ->
-        @asynchronizer.check 'one'
+    it 'does not call the done callback if not all conditions are fulfilled', ->
+      expect(@callback).to.not.have.been.called
+      @asynchronizer.check 'one'
+      expect(@callback).to.not.have.been.called
+      @asynchronizer.check 'two'
+      expect(@callback).to.not.have.been.called
 
-      it 'does not call the callback', ->
-        expect(@callback).to.not.have.been.called
+    it 'calls the finished condition only when all conditions are fulfilled', ->
+      @asynchronizer.check 'one'
+      @asynchronizer.check 'two'
+      @asynchronizer.check 'three'
+      expect(@callback).to.have.been.calledOnce
+
+    it 'calls the callback with the data provided by the conditions', ->
+      @asynchronizer.check 'one', 'data for one'
+      @asynchronizer.check 'two'
+      @asynchronizer.check 'three', 'data for three'
+      expect(@callback).to.have.been.calledWith [ 'data for one',
+                                                  'data for three' ]
 
 
-    context 'all conditions fulfilled', ->
+  context 'callback defined while the conditions are fulfilled', ->
 
-      beforeEach ->
-        @asynchronizer.check 'one', 'data one'
-        @asynchronizer.check 'two'
-        @asynchronizer.check 'three', 'data three'
+    beforeEach ->
+      @asynchronizer.check 'one', 'data for one'
+      @asynchronizer.check 'two'
+      @asynchronizer.then @callback
 
-      it 'calls the callback', ->
-        expect(@callback).to.have.been.calledOnce
+    it 'does not call the done callback if not all conditions are fulfilled', ->
+      expect(@callback).to.not.have.been.called
 
-      it 'provides the collected data in the callback', ->
-        expect(@callback).to.have.been.calledWith [ 'data one',
-                                                    'data three' ]
+    it 'calls the finished condition only when all conditions are fulfilled', ->
+      @asynchronizer.check 'three'
+      expect(@callback).to.have.been.calledOnce
+
+    it 'calls the callback with the data provided by the conditions', ->
+      @asynchronizer.check 'three', 'data for three'
+      expect(@callback).to.have.been.calledWith [ 'data for one',
+                                                  'data for three' ]
+
+
+  context 'callback defined after the conditions are fulfilled', ->
+
+    beforeEach ->
+      @asynchronizer.check 'one', 'data for one'
+      @asynchronizer.check 'two'
+      @asynchronizer.check 'three', 'data for three'
+      @asynchronizer.then @callback
+
+    it 'calls the callback right away', ->
+      expect(@callback).to.have.been.calledOnce
+
+    it 'calls the callback with the data given in the individual callbacks', ->
+      expect(@callback).to.have.been.calledWith [ 'data for one',
+                                                  'data for three' ]
 
