@@ -37,3 +37,4 @@ asynchronizer.check('event two', 'data for event two');
 
 * set up development environment: `npm install`
 * run tests: `npm test` or `script/watch_tests` for continuous testing
+* compile a new release with `grunt release`
