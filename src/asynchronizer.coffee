@@ -27,5 +27,5 @@ class Asynchronizer
 
 
 
-module.exports = Asynchronizer if module
-window.Asynchronizer = Asynchronizer if window?
+module?.exports = Asynchronizer
+window?.Asynchronizer = Asynchronizer
