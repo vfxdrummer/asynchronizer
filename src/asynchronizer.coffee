@@ -2,13 +2,11 @@
 
 class Asynchronizer
 
-  # conditions: array of simple conditions to wait for.
-  # callback: method that is called when all required conditions are met.
-  #           Provides the collected data.
-  constructor: (conditions, callback) ->
+  # conditions: Array of simple conditions to wait for.
+  constructor: (conditions) ->
 
     # The callback to call when all conditions are fulfilled.
-    @callback = callback
+    @callback = undefined
 
     # The conditions that still need to be fulfilled before we are done
     # and can call the callback.
@@ -22,8 +20,19 @@ class Asynchronizer
   check: (condition, value) ->
     @values.push value if value
     @remaining_conditions = _.without @remaining_conditions, condition
-    if @remaining_conditions.length is 0
+    @_check_and_fire_conditions()
+
+
+  # Checks the conditions and fires them if this is the time.
+  _check_and_fire_conditions: ->
+    if @remaining_conditions.length is 0 and @callback
       @callback @values
+
+
+  # Sets the callback to be called when done.
+  then: (callback) ->
+    @callback = callback
+    @_check_and_fire_conditions()
 
 
 
