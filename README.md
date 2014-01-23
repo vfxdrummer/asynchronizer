@@ -30,7 +30,7 @@ asynchronizer.check('event one', 'data for event one');
 // Do more things here....
 
 // At some other point event two has happened.
-// Lets tell the Asynchronizer about that as well.
+// Lets give Asynchronizer the good news.
 asynchronizer.check('event two', 'data for event two');
 
 // This is the last event that our Asynchronizer instance was waiting for.
