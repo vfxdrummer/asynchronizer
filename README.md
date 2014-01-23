@@ -15,7 +15,7 @@ asynchronizer = new Asynchronizer(['event one', 'event two']);
 asynchronizer.then(function(data) {
   // This method will be fired once the events with name
   // 'event one' and 'event two' have occurred.
-  alert("All events have been registered. The collected data is: " + data);
+  console.log("All done! The collected data is: " + data.join(', '));
 });
 
 // Do some things here....
@@ -35,9 +35,9 @@ asynchronizer.check('event two', 'data for event two');
 
 // This is the last event that our Asynchronizer instance was waiting for.
 // So this will cause the Asynchronizer to call the callback given to it
-// using the "then" call.
-// In this example, it will be called with the collected data.
-// In this example: ['data for event one', 'data for event two']
+// in the "then" method, with the collected data.
+// In this example, the console would say:
+// "All done! The collected data is: data for event one, data for event two"
 ```
 
 
