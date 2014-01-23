@@ -1,5 +1,7 @@
-# Collects data from asynchronous events.
+_ = require 'underscore' if module?
 
+
+# Collects data from asynchronous events.
 class Asynchronizer
 
   # conditions: Array of simple conditions to wait for.

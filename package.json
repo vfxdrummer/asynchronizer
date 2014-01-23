@@ -5,6 +5,9 @@
   "directories": {
     "test": "test"
   },
+  "dependencies": {
+    "underscore": "latest"
+  },
   "devDependencies": {
     "coffee-script": "latest",
     "grunt": "latest",
@@ -14,8 +17,7 @@
     "mocha": "latest",
     "sinon": "latest",
     "sinon-chai": "latest",
-    "uglifyjs": "latest",
-    "underscore": "latest"
+    "uglifyjs": "latest"
   },
   "scripts": {
     "test": "mocha --compilers coffee:coffee-script --reporter spec"
