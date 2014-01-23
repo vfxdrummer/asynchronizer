@@ -22,7 +22,7 @@ asynchronizer.then(function(data) {
 
 // At some point in your code, event one has happened.
 // Tell the Asynchronizer about it.
-asynchronizer.check 'event one', 'data for event one'
+asynchronizer.check('event one', 'data for event one');
 
 // At this point the Asynchronizer still waits for event two,
 // so the callback does not get triggered.
