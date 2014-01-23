@@ -8,33 +8,41 @@ and process them all at once when done.
 
 
 ```javascript
-// Define an asynchronizer.
-asynchronizer = new Asynchronizer(['event one', 'event two'], function(data) {
-  // This method is fired once the events with name 'event one' and 'event two'
-  // have been registered.
-  // For this example, the argument 'data' will have the content:
-  // ['data for event one', 'data for event two']
+// Create a new Asynchronizer, which waits for two specified events.
+asynchronizer = new Asynchronizer(['event one', 'event two']);
+
+// Tell the Asynchronizer what to do when all of the events have happened.
+asynchronizer.then(function(data) {
+  // This method will be fired once the events with name
+  // 'event one' and 'event two' have occurred.
   alert("All events have been registered. The collected data is: " + data);
 });
 
-// do some things here....
+// Do some things here....
 
-// Register one of the expected events.
-// There are still unchecked conditions in this Asynchronizer,
-// so this does not trigger the callback.
+// At some point in your code, event one has happened.
+// Tell the Asynchronizer about it.
 asynchronizer.check 'event one', 'data for event one'
 
-// do some more things here....
+// At this point the Asynchronizer still waits for event two,
+// so the callback does not get triggered.
 
-// Register the other expected event.
-// This is the last missing event,
-// so this will cause the Asynchronizer to call the callback.
+// Do more things here....
+
+// At some other point event two has happened.
+// Lets tell the Asynchronizer about that as well.
 asynchronizer.check('event two', 'data for event two');
+
+// This is the last event that our Asynchronizer instance was waiting for.
+// So this will cause the Asynchronizer to call the callback given to it
+// using the "then" call.
+// In this example, it will be called with the collected data.
+// In this example: ['data for event one', 'data for event two']
 ```
 
 
 ## Development
 
 * set up development environment: `npm install`
-* run tests: `npm test` or `script/watch_tests` for continuous testing
-* compile a new release with `grunt release`
+* run the tests: `npm test` or `script/watch_tests` for continuous testing
+* compile a new release: `grunt release`
