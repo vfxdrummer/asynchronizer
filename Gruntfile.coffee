@@ -14,7 +14,7 @@ module.exports = (grunt) ->
 
       build:
         src: 'tmp.js',
-        dest: 'releases/<%= pkg.name %>.<%= pkg.version %>.js'
+        dest: 'asynchronizer.js'
 
     clean: ['tmp.js']
 

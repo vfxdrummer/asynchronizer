@@ -26,6 +26,7 @@
   },
   "author": "Kevin Goslar",
   "license": "MIT",
+  "main": "asynchronizer.js",
   "bugs": {
     "url": "https://github.com/kevgo/asynchronizer.js/issues"
   },
