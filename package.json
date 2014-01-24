@@ -1,6 +1,6 @@
 {
   "name": "asynchronizer",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Promise for collecting data through multiple asynchronous events in JavaScript.",
   "directories": {
     "test": "test"
